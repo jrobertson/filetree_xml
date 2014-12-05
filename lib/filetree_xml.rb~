@@ -11,11 +11,13 @@ class FileTreeXML
 
   def initialize(x)
 
-    case x.strip
-    when /^<\?polyrex/
+    case x
+    when x[/^<?polyrex/]
+
       @px = Polyrex.new
-      @px.import x
-    else
+
+      @px.import s
+    else 
       @px = Polyrex.new x
 
     end
