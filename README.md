@@ -2,8 +2,10 @@ Introducing the Filetree_xml gem
 
     require 'filetree_xml'
 
-    s =&lt;&lt;EOF
-    &lt;?polyrex schema='files[title,tags]/file[title]'?&gt;
+    s =<<EOF
+
+    <?polyrex schema='files[title,tags]/file[title]'?>
+
     title: Depot File Index
     tags: files index
 
@@ -11,11 +13,13 @@ Introducing the Filetree_xml gem
       products
         _form.html.erb
         new.html.erb
+
     EOF
 
+
     ftx = FileTreeXML.new s
-    ftx.ls  #=&gt; ["views"] 
-    ftx.ls 'views/products' #=&gt; ["_form.html.erb", "new.html.erb"]
+    ftx.ls  #=> ["views"] 
+    ftx.ls 'views/products' #=> ["_form.html.erb", "new.html.erb"]
 
 The above example creates a representation of a file tree using plain text. It can then be used to list *files* in the selected directory.
 
