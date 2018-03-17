@@ -9,15 +9,20 @@ require 'polyrex'
 class FileTreeXML
 
 
-  def initialize(x)
+  def initialize(x, debug: false)
 
+    @debug = debug
+    
     case x.strip
     when /^<\?polyrex/
       @px = Polyrex.new
       @px.import x
-    else
+    when /</
       @px = Polyrex.new x
-
+    else
+      puts 'importing  schemaless raw document' if debug
+      @px = Polyrex.new schema: 'files[title,tags]/file[title]'
+      @px.import x
     end
 
   end
