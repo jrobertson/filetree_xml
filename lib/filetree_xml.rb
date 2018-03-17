@@ -28,13 +28,15 @@ class FileTreeXML
   end
 
   def ls(path='.')
+    
+    return @px.xpath './records/file/summary/title/text()' if path == '.'
 
     a = path.split('/')
 
     xpath = if a.length > 1 then
       a.map {|x| "records/file[summary/title='%s']" % x }.join('/')
     else
-      path 
+      "records/file[summary/title='%s']" % path 
     end
 
     @px.xpath xpath + '/records/file/summary/title/text()'

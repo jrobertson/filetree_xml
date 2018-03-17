@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'filetree_xml'
-  s.version = '0.1.2'
+  s.version = '0.1.3'
   s.summary = 'Represents a file tree using a Polyrex document'
   s.authors = ['James Robertson']
   s.files = Dir['lib/filetree_xml.rb']
